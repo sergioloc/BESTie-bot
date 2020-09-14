@@ -1,6 +1,7 @@
+require('dotenv').config();
 const Discord = require("discord.js");
 const client = new Discord.Client();
-const {token} = require('./config.json');
+//const {token} = require('./config.json');
 
 function presence(){
   client.user.setPresence({
@@ -24,4 +25,4 @@ client.on("ready", () => {
  
  });
  
- client.login(token);
+ client.login(process.env.BOT_TOKEN);
