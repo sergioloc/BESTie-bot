@@ -2,10 +2,20 @@ require('dotenv').config();
 const Discord = require("discord.js");
 const client = new Discord.Client();
 //const {token} = require('./config.json');
-const prefix = '-'
+const prefix = '!'
+
+const roleMember_ID = '755389442495217714' // Member
+const channelGeneral_ID = '752437665223409747' // General
+const channelAnnoucement_ID = '752497702260047942' // Anuncios
 
 const roleA_ID = '755381690448478259' // Team A
 const channelA_ID = '752441762743713842' // Team A
+
+const roleB_ID = '755386352064790529' // Team B
+const channelB_ID = '752441784604426270' // Team B
+
+const roles = [roleA_ID, roleB_ID]
+const channels = [channelA_ID, channelB_ID]
 
 function presence(){
   client.user.setPresence({
@@ -28,15 +38,26 @@ client.on("message", (message) => {
   const args = message.content.slice(prefix.length).split(/ +/);
   const command = args.shift().toLowerCase();
 
-  if (command == 'ping'){
-    message.channel.send('pong');
+  if (command == 'equipos'){
+    for(var i = 0; i < roles.length; i++){
+      const memberWithRole = message.guild.roles.cache.get(`${roles[i]}`).members.map(m=>m)
+      for (var j = 0; j < memberWithRole.length; j++) {
+        memberWithRole[j].voice.setChannel(`${channels[i]}`);
+      }
+    }
   }
 
-  else if (command == 'move'){
-    //message.member.voice.setChannel('755350302646861836');
-    const memberWithMORole = message.guild.roles.cache.get(`${roleA_ID}`).members.map(m=>m)
-    for (var i = 0; i < memberWithMORole.length; i++) {
-      memberWithMORole[i].voice.setChannel(`${channelA_ID}`);
+  else if (command == 'general'){
+    const everyone = message.guild.roles.cache.get(`${roleMember_ID}`).members.map(m=>m)
+    for (var j = 0; j < everyone.length; j++) {
+      everyone[j].voice.setChannel(`${channelGeneral_ID}`);
+    }
+  }
+
+  else if (command == 'anuncios'){
+    const everyone = message.guild.roles.cache.get(`${roleMember_ID}`).members.map(m=>m)
+    for (var j = 0; j < everyone.length; j++) {
+      everyone[j].voice.setChannel(`${channelAnnoucement_ID}`);
     }
   }
   
