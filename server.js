@@ -11,8 +11,6 @@ for (const file of commandFiles){
   client.commands.set(command.name, command);
 }
 
-const channelAnnoucement_ID = '752497702260047942' // Anuncios
-
 const roleA_ID = '755381690448478259' // Team A
 const channelA_ID = '752441762743713842' // Team A
 
