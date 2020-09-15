@@ -58,14 +58,6 @@ client.on("message", (message) => {
   else if (command == 'all'){
     client.commands.get('all').execute(message, args);
   }
-
-  else if (command == 'anuncios'){
-    const everyone = message.guild.roles.everyone.members.map(m=>m);
-    for (var j = 0; j < everyone.length; j++) {
-      everyone[j].voice.setChannel(`${channelAnnoucement_ID}`);
-    }
-  }
-  
 });
 
 client.login(process.env.BOT_TOKEN);
