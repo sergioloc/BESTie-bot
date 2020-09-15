@@ -52,9 +52,11 @@ client.on("message", (message) => {
       }
     }
   }
-
   else if (command == 'all'){
     client.commands.get('all').execute(message, args);
+  }
+  else if (command == 'team'){
+    client.commands.get('team').execute(message, args);
   }
 });
 
