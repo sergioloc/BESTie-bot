@@ -4,9 +4,11 @@ module.exports = {
 
     execute(message, args){
         argument = args[0]
-        for (var i = 1; i < everyone.length; i++) {
+        console.log(`${args.length}`);
+        for (var i = 1; i < args.length; i++) {
             argument = argument + ' ' + args[i];
         }
+        console.log(`${argument}`);
         const everyone = message.guild.roles.everyone.members.map(m=>m);
         const channel = message.guild.channels.cache.find(channel => channel.name == `${argument}`);
         for (var i = 0; i < everyone.length; i++) {
