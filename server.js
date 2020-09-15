@@ -20,12 +20,12 @@ client.on("ready", () => {
  
 client.on("message", (message) => {
   if(message.content.startsWith("ping")) {
-    message.channel.send("pong!");
-  }
-  else if(message.content.startsWith("!moveteams")) {
+    message.channel.send("Movido a team1");
     const mem = message.mentions.members.first()
     mem.setVoiceChannel("team1")
-    message.channel.send("Movido ${mem.displayName} a team1");
+    voiceChannel.join()
+      .then(connection => console.log('Connected!'))
+      .catch(console.error);
   }
 });
 
