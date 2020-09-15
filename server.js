@@ -29,10 +29,13 @@ client.on("message", (message) => {
     message.channel.send('pong');
   }
   else if (command == 'move'){
-    message.channel.send("Movido a test");
-    const mem = message.mentions.members.first()
-    const chan = client.channels.get('test')
-    mem.setVoiceChannel(chan)
+    if (!message.member.hasPermission("MOVE_MEMBERS")) {
+      message.channel.send("You do not have the correct permissions!");
+      
+    }
+    else{
+      message.channel.send("You have the correct permissions.");
+    }
   }
   
 });
