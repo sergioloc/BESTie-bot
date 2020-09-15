@@ -4,6 +4,9 @@ const client = new Discord.Client();
 //const {token} = require('./config.json');
 const prefix = '-'
 
+const roleA_ID = '755381690448478259' // Team A
+const channelA_ID = '752441762743713842' // Team A
+
 function presence(){
   client.user.setPresence({
       status: "online", //dnd, idle, invisible, online
@@ -30,9 +33,11 @@ client.on("message", (message) => {
   }
 
   else if (command == 'move'){
-    oldChannel = channels.get("752437665223409747");
-    newChannel = channels.get("755350302646861836");
-    var counter = await client.lib.move.channel(client, message.member, newChannel);
+    //message.member.voice.setChannel('755350302646861836');
+    const memberWithMORole = message.guild.roles.cache.get(`${roleA_ID}`).members.map(m=>m)
+    for (var i = 0; i < memberWithMORole.length; i++) {
+      memberWithMORole[i].voice.setChannel(`${channelA_ID}`);
+    }
   }
   
 });
