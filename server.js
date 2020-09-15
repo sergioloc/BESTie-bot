@@ -50,7 +50,7 @@ client.on("message", (message) => {
   }
 
   else if (command == 'general'){
-    const everyone = message.guild.roles.cache.get(`${roleMember_ID}`).members.map(m=>m)
+    const everyone = message.guild.roles.everyone.members.map(m=>m);
     for (var j = 0; j < everyone.length; j++) {
       everyone[j].voice.setChannel(`${channelGeneral_ID}`);
     }
