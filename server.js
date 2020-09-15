@@ -29,14 +29,7 @@ client.on("message", (message) => {
     message.channel.send('pong');
   }
   else if (command == 'move'){
-    //Check
-    if (!message.member.hasPermission("MOVE_MEMBERS")) {
-      message.channel.send("You do not have the correct permissions!");
-      
-    }
-    else{
-      message.channel.send("You have the correct permissions.");
-    }
+    checkPermissions()
 
     //Set channels
     alias = client.guild.config.alias;
@@ -55,7 +48,7 @@ client.on("message", (message) => {
       (val) => val.id === oldChannelId
     );
 
-    //Moving users
+    /*Moving users
     var counter = await client.lib.move.channel(client, oldChannel, newChannel);
     if (!counter) {
       message.channel.send(
@@ -66,9 +59,20 @@ client.on("message", (message) => {
         message: "Could not move to " + newChannel.name + ", is it full?",
       };
     }
+    */
 
   }
   
 });
+
+function checkPermissions(){
+  if (!message.member.hasPermission("MOVE_MEMBERS")) {
+    message.channel.send("You do not have the correct permissions!");
+    
+  }
+  else{
+    message.channel.send("You have the correct permissions.");
+  }
+}
 
 client.login(process.env.BOT_TOKEN);
