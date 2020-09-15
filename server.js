@@ -1,7 +1,6 @@
 require('dotenv').config();
 const Discord = require("discord.js");
 const client = new Discord.Client();
-//const {token} = require('./config.json');
 const prefix = '!'
 
 const roleMember_ID = '755389442495217714' // Member
@@ -34,6 +33,9 @@ client.on("ready", () => {
  
 client.on("message", (message) => {
   if(!message.content.startsWith(prefix) || message.author.bot) return;
+
+  channel = client.channels.cache.find(channel => channel.name === "comandos")
+  if(message.channel != channel) return;
 
   const args = message.content.slice(prefix.length).split(/ +/);
   const command = args.shift().toLowerCase();
