@@ -55,8 +55,8 @@ client.on("message", (message) => {
     }
   }
 
-  else if (command == 'general'){
-    client.commands.get('general').execute(message, args);
+  else if (command == 'all'){
+    client.commands.get('all').execute(message, args);
   }
 
   else if (command == 'anuncios'){
