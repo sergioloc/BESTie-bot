@@ -2,9 +2,15 @@ require('dotenv').config();
 const Discord = require("discord.js");
 const client = new Discord.Client();
 const prefix = '!'
+const fs = require('fs');
+client.commands = new Discord.Collection();
+const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'));
 
-const roleMember_ID = '755389442495217714' // Member
-const channelGeneral_ID = '752437665223409747' // General
+for (const file of commandFiles){
+  const command = require(`./commands/${file}`);
+  client.commands.set(command.name, command);
+}
+
 const channelAnnoucement_ID = '752497702260047942' // Anuncios
 
 const roleA_ID = '755381690448478259' // Team A
@@ -50,14 +56,11 @@ client.on("message", (message) => {
   }
 
   else if (command == 'general'){
-    const everyone = message.guild.roles.everyone.members.map(m=>m);
-    for (var j = 0; j < everyone.length; j++) {
-      everyone[j].voice.setChannel(`${channelGeneral_ID}`);
-    }
+    client.commands.get('general').execute(message, args);
   }
 
   else if (command == 'anuncios'){
-    const everyone = message.guild.roles.cache.get(`${roleMember_ID}`).members.map(m=>m)
+    const everyone = message.guild.roles.everyone.members.map(m=>m);
     for (var j = 0; j < everyone.length; j++) {
       everyone[j].voice.setChannel(`${channelAnnoucement_ID}`);
     }
