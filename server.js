@@ -22,15 +22,11 @@ client.on("message", (message) => {
   if(message.content.startsWith("ping")) {
     message.channel.send("pong!");
   }
- 
-});
-
-client.on("message", (message) => {
-  if(message.content.startsWith("!moveteams")) {
+  else if(message.content.startsWith("!moveteams")) {
     const mem = message.mentions.members.first()
     mem.setVoiceChannel("team1")
     message.channel.send("Movido ${mem.displayName} a team1");
   }
 });
- 
- client.login(process.env.BOT_TOKEN);
+
+client.login(process.env.BOT_TOKEN);
