@@ -4,7 +4,6 @@ module.exports = {
 
     execute(message, args){
         argument = args[0]
-        console.log(`${args.length}`);
         for (var i = 1; i < args.length; i++) {
             argument = argument + ' ' + args[i];
         }
