@@ -39,10 +39,10 @@ module.exports = {
             role = message.guild.roles.cache.find(r => r.name == `${stars + argument}`)
             i++;
         } 
-        role.members.map(m=>m);
+        roleMembers = role.members.map(m=>m);
         const channel = message.guild.channels.cache.find(channel => channel.name == `${argument}`);
-        for (var i = 0; i < role.length; i++) {
-            role[i].voice.setChannel(`${channel.id}`);
+        for (var i = 0; i < roleMembers.length; i++) {
+            roleMembers[i].voice.setChannel(`${channel.id}`);
         }
     }
 }
