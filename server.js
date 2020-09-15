@@ -25,10 +25,13 @@ client.on("message", (message) => {
   const args = message.content.slice(prefix.length).split(/ +/);
   const command = args.shift().toLowerCase();
 
-  if (command === 'ping'){
+  if (command == 'ping'){
     message.channel.send('pong');
   }
-    //message.channel.send("Movido a test");
+  else if (command == 'move'){
+    message.channel.send("Movido a test");
+  }
+    //
     //const mem = message.mentions.members.first()
     //const chan = client.channels.get('test')
     //mem.setVoiceChannel(chan)
