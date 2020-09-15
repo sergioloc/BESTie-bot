@@ -30,11 +30,10 @@ client.on("message", (message) => {
   }
   else if (command == 'move'){
     message.channel.send("Movido a test");
+    const mem = message.mentions.members.first()
+    const chan = client.channels.get('test')
+    mem.setVoiceChannel(chan)
   }
-    //
-    //const mem = message.mentions.members.first()
-    //const chan = client.channels.get('test')
-    //mem.setVoiceChannel(chan)
   
 });
 
