@@ -27,25 +27,18 @@ client.on("ready", () => {
  });
  
 client.on("message", (message) => {
-  if(message.content === "ayy") {
-    message.channel.send("Ayy, lmao!");
-  }
-  if(message.content === "wat") {
-    message.channel.send("Say what?");
-  }
-  if(message.content === "lol") {
-    message.channel.send("roflmaotntpmp");
-  }
-
   if(message.content.startsWith(prefix) && !message.author.bot){
     //const args = message.content.slice(prefix.length).split(/ +/);
     if (message.content === prefix + 'all'){
+      message.channel.send("Command all");
       //client.commands.get('all').execute(message, args);
     }
     else if (message.content === prefix + 'team'){
+      message.channel.send("Command team");
       //client.commands.get('team').execute(client, message, args);
     }
     else if (message.content === prefix + 'teams'){
+      message.channel.send("Command teams");
       //client.commands.get('teams').execute(client, message, args);
     }
   }
