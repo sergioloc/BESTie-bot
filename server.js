@@ -28,21 +28,18 @@ client.on("ready", () => {
  
 client.on("message", (message) => {
   if(message.content.startsWith(prefix) && !message.author.bot){
-    
+
     const args = message.content.slice(prefix.length).split(/ +/);
     const command = args.shift().toLowerCase();
 
-    if (command == 'all'){
-      //message.channel.send("Command all");
+    if (command === 'all'){
       client.commands.get('all').execute(message, args);
     }
-    else if (command == 'team'){
-      message.channel.send("Command team");
-      //client.commands.get('team').execute(client, message, args);
+    else if (command === 'team'){
+      client.commands.get('team').execute(client, message, args);
     }
-    else if (command == 'teams'){
-      message.channel.send("Command teams");
-      //client.commands.get('teams').execute(client, message, args);
+    else if (command === 'teams'){
+      client.commands.get('teams').execute(client, message, args);
     }
   }
 });
