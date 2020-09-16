@@ -36,16 +36,13 @@ client.on("message", (message) => {
   if(message.content === "lol") {
     message.channel.send("roflmaotntpmp");
   }
-  /*
-  if(!message.content.startsWith(prefix) || message.author.bot) return;
 
-  channel = client.channels.cache.find(channel => channel.name === "comandos")
-  if(message.channel != channel) return;
+  if(!message.content.startsWith(prefix) || message.author.bot) return;
 
   const args = message.content.slice(prefix.length).split(/ +/);
   const command = args.shift().toLowerCase();
 
-  if (command === 'all'){
+  if (command == 'all'){
     client.commands.get('all').execute(message, args);
   }
   else if (command == 'team'){
@@ -54,7 +51,6 @@ client.on("message", (message) => {
   else if (command == 'teams'){
     client.commands.get('teams').execute(client, message, args);
   }
-  */
 });
 
 client.login(process.env.BOT_TOKEN);
