@@ -40,15 +40,14 @@ client.on("message", (message) => {
   if(!message.content.startsWith(prefix) || message.author.bot) return;
 
   const args = message.content.slice(prefix.length).split(/ +/);
-  const command = args.shift().toLowerCase();
 
-  if (command == 'all'){
+  if (message.content === prefix + 'all'){
     client.commands.get('all').execute(message, args);
   }
-  else if (command == 'team'){
+  else if (message.content === prefix + 'team'){
     client.commands.get('team').execute(client, message, args);
   }
-  else if (command == 'teams'){
+  else if (message.content === prefix + 'teams'){
     client.commands.get('teams').execute(client, message, args);
   }
 });
