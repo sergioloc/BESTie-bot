@@ -37,18 +37,18 @@ client.on("message", (message) => {
     message.channel.send("roflmaotntpmp");
   }
 
-  if(!message.content.startsWith(prefix) || message.author.bot) return;
+  //if(!message.content.startsWith(prefix) || message.author.bot) return;
 
-  const args = message.content.slice(prefix.length).split(/ +/);
+  //const args = message.content.slice(prefix.length).split(/ +/);
 
   if (message.content === prefix + 'all'){
-    client.commands.get('all').execute(message, args);
+    //client.commands.get('all').execute(message, args);
   }
   else if (message.content === prefix + 'team'){
-    client.commands.get('team').execute(client, message, args);
+    //client.commands.get('team').execute(client, message, args);
   }
   else if (message.content === prefix + 'teams'){
-    client.commands.get('teams').execute(client, message, args);
+    //client.commands.get('teams').execute(client, message, args);
   }
 });
 
