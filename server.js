@@ -58,6 +58,9 @@ client.on("message", (message) => {
   else if (command == 'team'){
     client.commands.get('team').execute(message, args);
   }
+  else if (command == 'teams'){
+    client.commands.get('teams').execute(message, args);
+  }
 });
 
 client.login(process.env.BOT_TOKEN);
