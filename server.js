@@ -37,7 +37,7 @@ client.on("message", (message) => {
     message.channel.send("roflmaotntpmp");
   }
 
-  if(!message.content.startsWith(prefix)/* || message.author.bot*/) return;
+  if(/*!message.content.startsWith(prefix) || */message.author.bot) return;
 
   //const args = message.content.slice(prefix.length).split(/ +/);
 
