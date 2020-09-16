@@ -23,19 +23,15 @@ module.exports = {
             }
         }
 
-        /*Print result
+        //Print result
         if (count == 0){
             message.channel.send('No one is connected to a voice channel')
-            .then(console.log("No one is connected to a voice channel"))
         }
         else if (count == 1){
             message.channel.send(`${count} member have been moved to ${argument}`)
-            console.log(`${count} member have been moved to ${argument}`);
         }
         else {
             message.channel.send(`${count} members have been moved to ${argument}`)
-            console.log(`${count} members have been moved to ${argument}`);
         }
-        */
     }
 }
