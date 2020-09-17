@@ -56,11 +56,11 @@ module.exports = {
                     }
                 }
                 else{
-                    message.channel.send(`couldn't find ${args} voice channel`);
+                    message.channel.send(`Couldn't find ${args} voice channel`);
                 }
             }
             else{
-                message.channel.send(`There are no members of ${args} role`);
+                message.channel.send(`There are no members of ${args}`);
             }
         }
         else{

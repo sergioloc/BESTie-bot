@@ -32,14 +32,18 @@ client.on("message", (message) => {
     const args = message.content.slice(prefix.length).split(/ +/);
     const command = args.shift().toLowerCase();
 
-    if (command === 'all'){
-      client.commands.get('all').execute(message, args);
-    }
-    else if (command === 'team'){
-      client.commands.get('team').execute(client, message, args);
-    }
-    else if (command === 'teams'){
-      client.commands.get('teams').execute(client, message, args);
+    switch(command){
+      case 'all':
+        client.commands.get('all').execute(message, args);
+        break;
+
+      case 'team':
+        client.commands.get('team').execute(client, message, args);
+        break;
+
+      case 'teams':
+        client.commands.get('teams').execute(client, message, args);
+        break;
     }
   }
 });
