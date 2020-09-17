@@ -12,7 +12,10 @@ module.exports = {
 
         //Get role and channel
         const everyone = message.guild.roles.everyone.members.map(m=>m);
-        const channel = message.guild.channels.cache.find(channel => channel.name == `${argument}`);
+        const channel = message.guild.channels.cache.find(channel => channel.name == `${argument}` && channel.type == 'voice');
+
+        if (channel == undefined)
+            return message.channel.send(`Couldn't find ${argument} voice channel`);
 
         //Move members
         count = 0
@@ -25,13 +28,13 @@ module.exports = {
 
         //Print result
         if (count == 0){
-            message.channel.send('No one is connected to a voice channel')
+            return message.channel.send('No one is connected to a voice channel')
         }
         else if (count == 1){
-            message.channel.send(`${count} member have been moved to ${argument}`)
+            return message.channel.send(`${count} member have been moved to ${argument}`)
         }
         else {
-            message.channel.send(`${count} members have been moved to ${argument}`)
+            return message.channel.send(`${count} members have been moved to ${argument}`)
         }
     }
 }

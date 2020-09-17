@@ -38,7 +38,7 @@ module.exports = {
         if (role != undefined){
             roleMembers = role.members.map(m=>m);
             if (roleMembers.length != 0){
-                const channel = message.guild.channels.cache.find(channel => channel.name == `${args}`);
+                const channel = message.guild.channels.cache.find(channel => channel.name == `${args}` && channel.type == 'voice');
                 if (channel != undefined){
                     count = 0;
                     for (var i = 0; i < roleMembers.length; i++) {
