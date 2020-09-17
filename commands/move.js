@@ -22,13 +22,13 @@ module.exports = {
 
         //Check if role exist
         if (role == undefined)
-            return message.channel.send(`${args} role doesn't exist`);
+            return message.channel.send(`'${args}' role doesn't exist`);
 
         const channel = message.guild.channels.cache.find(channel => channel.name == `${args}` && channel.type == 'voice');
         
         //Check if channel exist
         if (channel == undefined)
-            return message.channel.send(`Couldn't find ${args} voice channel`);
+            return message.channel.send(`Couldn't find '${args}' voice channel`);
 
         roleMembers = role.members.map(m=>m);
 
@@ -45,7 +45,10 @@ module.exports = {
         }
         
         //Print result
-        if (count == 1){
+        if (count == 0){
+            message.channel.send(`There are no members of ${args} in a voice channel`)
+        }
+        else if (count == 1){
             message.channel.send(`${count} member has been moved to ${args}`)
         }
         else {
