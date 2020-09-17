@@ -45,6 +45,10 @@ client.on("message", (message) => {
         client.commands.get('teams').execute(client, message, args);
         break;
 
+      case 'list':
+        client.commands.get('list').execute(message);
+        break;
+
       case 'help':
         const embed = new Discord.MessageEmbed()
         .setTitle('BESTie help')
