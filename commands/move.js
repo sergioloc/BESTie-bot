@@ -3,39 +3,22 @@ module.exports = {
     description: 'Move team to their channel',
 
     execute(message, args){
+        const maxStars = 7;
         role = undefined
         i = 0
-        while (role == undefined && i <= 7){
+
+        //Get role
+        while (role == undefined && i <= maxStars){
             stars = '';
-            switch (i){
-                case 0:
-                    break; 
-                case 1:
-                    stars = '★ ';
-                    break; 
-                case 2:
-                    stars = '★★ ';
-                    break;
-                case 3:
-                    stars = '★★★ ';
-                    break;
-                case 4:
-                    stars = '★★★★ ';
-                    break;
-                case 5:
-                    stars = '★★★★★ ';
-                    break;
-                case 5:
-                    stars = '★★★★★★ ';
-                    break;
-                case 5:
-                    stars = '★★★★★★★ ';
-                    break;
+            if (i > 0){
+                for (var j = 0; j < i; j++){
+                    stars = stars + '★';
+                }
             }
             role = message.guild.roles.cache.find(r => r.name == `${stars + args}`)
             i++;
         }
-        
+
         //Check if role exist
         if (role == undefined)
             return message.channel.send(`${args} role doesn't exist`);
