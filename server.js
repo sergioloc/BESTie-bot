@@ -44,6 +44,20 @@ client.on("message", (message) => {
       case 'teams':
         client.commands.get('teams').execute(client, message, args);
         break;
+
+      case 'help':
+        const embed = Discord.RichEmbed()
+        .setTitle('BESTie help')
+        .setDescription('Move server members at the same time!\nMembers must be in a voice channel to move them.')
+        .setDescription('')
+        .addBlankField(true)
+        .addFields(
+          { name: '!all [Channel]', value: 'Move everyone to [Channel]' },
+          { name: '!team [Team]', value: 'Move team members to their voice channel' },
+          { name: '!teams [Team1], [Team2]...', value: 'Move multiple teams members to their voice channel' }
+        );
+        message.channel.sendEmbed(embed);
+        break;
     }
   }
 });
