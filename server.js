@@ -49,7 +49,6 @@ client.on("message", (message) => {
         const embed = Discord.RichEmbed()
         .setTitle('BESTie help')
         .setDescription('Move server members at the same time!\nMembers must be in a voice channel to move them.')
-        .setDescription('')
         .addBlankField(true)
         .addFields(
           { name: '!all [Channel]', value: 'Move everyone to [Channel]' },
