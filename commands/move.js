@@ -14,7 +14,8 @@ module.exports = {
                 for (var j = 0; j < i; j++){
                     stars = stars + '★';
                 }
-            }
+                stars = stars + ' '
+            }            
             role = message.guild.roles.cache.find(r => r.name == `${stars + args}`)
             i++;
         }
