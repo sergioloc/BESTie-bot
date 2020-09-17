@@ -46,7 +46,7 @@ client.on("message", (message) => {
         break;
 
       case 'help':
-        const embed = Discord.RichEmbed()
+        const embed = Discord.MessageEmbed()
         .setTitle('BESTie help')
         .setDescription('Move server members at the same time!\nMembers must be in a voice channel to move them.')
         .addBlankField(true)
