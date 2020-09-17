@@ -48,14 +48,12 @@ client.on("message", (message) => {
       case 'help':
         const embed = new Discord.MessageEmbed()
         .setTitle('BESTie help')
-        .setDescription('Move server members at the same time!\nMembers must be in a voice channel to move them.')
-        .addBlankField(true)
-        .addFields(
-          { name: '!all [Channel]', value: 'Move everyone to [Channel]' },
-          { name: '!team [Team]', value: 'Move team members to their voice channel' },
-          { name: '!teams [Team1], [Team2]...', value: 'Move multiple teams members to their voice channel' }
-        );
-        message.channel.sendEmbed(embed);
+        .setDescription('Move members at the same time!\nThey must be in a voice channel.')
+        .setColor(0x0070b8)
+        .addField('!all [Channel]', 'Move everyone to [Channel]')
+        .addField('!team [Team]', 'Move [Team] members to their voice channel')
+        .addField('!teams [Team1], [Team2]...', 'Move multiple teams members to their voice channel');
+        message.channel.send(embed);
         break;
     }
   }
