@@ -1,3 +1,4 @@
+const Role = require('./role.js');
 module.exports = {
     name: 'move',
     description: 'Move team to their channel',
@@ -7,18 +8,7 @@ module.exports = {
         role = undefined
         i = 0
 
-        //Get role
-        while (role == undefined && i <= maxStars){
-            stars = '';
-            if (i > 0){
-                for (var j = 0; j < i; j++){
-                    stars = stars + '★';
-                }
-                stars = stars + ' '
-            }            
-            role = message.guild.roles.cache.find(r => r.name == `${stars + args}`)
-            i++;
-        }
+        role = Role.getRole(message, args);
 
         //Check if role exist
         if (role == undefined)

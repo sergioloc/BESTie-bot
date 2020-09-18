@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 module.exports = {
     name: 'members',
-    description: 'List members names',
+    description: 'List all team members',
 
     execute(message){
         const teams = []; 
