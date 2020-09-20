@@ -1,14 +1,11 @@
-const Role = require('./role.js');
+const RoleManager = require('./role.js');
 module.exports = {
     name: 'move',
     description: 'Move team to their channel',
 
     execute(message, args){
-        const maxStars = 7;
-        role = undefined
         i = 0
-
-        role = Role.getRole(message, args);
+        var role = RoleManager.getRole(message, args);
 
         //Check if role exist
         if (role == undefined)

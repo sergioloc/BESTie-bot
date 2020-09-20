@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-const Role = require('./role.js');
+const RoleManager = require('./role.js');
 module.exports = {
     name: 'membersof',
     description: 'List members of a team',
@@ -10,7 +10,7 @@ module.exports = {
             argument = argument + ' ' + args[i];
         }
 
-        role = Role.getRole(message, argument);
+        role = RoleManager.getRole(message, argument);
 
         //Check if role exist
         if (role == undefined)
