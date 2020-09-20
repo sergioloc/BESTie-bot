@@ -49,15 +49,16 @@ client.on("message", (message) => {
         client.commands.get('list').execute(message);
         break;
 
+      case 'members':
+        client.commands.get('members').execute(message);
+        break;
+
+      case 'membersof':
+        client.commands.get('membersof').execute(message, args);
+        break;
+
       case 'help':
-        const embed = new Discord.MessageEmbed()
-        .setTitle('BESTie help')
-        .setDescription('Move members at the same time!\nThey must be in a voice channel.')
-        .setColor(0x0070b8)
-        .addField('!all [Channel]', 'Move everyone to [Channel]')
-        .addField('!team [Team]', 'Move [Team] members to their voice channel')
-        .addField('!teams [Team1], [Team2]...', 'Move multiple teams members to their voice channel');
-        message.channel.send(embed);
+        client.commands.get('help').execute(message);
         break;
     }
   }
