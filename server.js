@@ -15,7 +15,7 @@ function presence(){
   client.user.setPresence({
       status: "online", //dnd, idle, invisible, online
       activity: {
-          name: "Cantus",
+          name: "Cantus | !help",
           type: "PLAYING" //LISTENING, PLAYING, STREAMING, WATCHING
       }
   })
