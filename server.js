@@ -56,6 +56,14 @@ client.on("message", (message) => {
       case 'membersof':
         client.commands.get('membersof').execute(message, args);
         break;
+      
+      case 'plus':
+        client.commands.get('plus').execute(message, args);
+        break;
+
+      case 'minus':
+        client.commands.get('minus').execute(message, args);
+        break;
 
       case 'help':
         client.commands.get('help').execute(message);
