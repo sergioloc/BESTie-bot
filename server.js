@@ -69,6 +69,7 @@ client.on("message", (message) => {
         client.commands.get('help').execute(message);
         break;
     }
+    message.delete({ timeout: 5000 });
   }
 });
 
