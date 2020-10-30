@@ -1,16 +1,17 @@
 const maxStars = 7;
+const emoji = '🍬';
 module.exports = {
     getRole: function (message, argument) {
         role = undefined
         i = 0
         while (role == undefined && i <= maxStars){
-            stars = '';
+            numEmojis = '';
             if (i > 0){
                 for (var j = 0; j < i; j++){
-                    stars = stars + '★';
+                    numEmojis = numEmojis + emoji;
                 }
             }            
-            role = message.guild.roles.cache.find(r => r.name == `${stars + argument}`)
+            role = message.guild.roles.cache.find(r => r.name == `${numEmojis + argument}`)
             i++;
         }
         return role

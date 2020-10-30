@@ -28,54 +28,47 @@ client.on("ready", () => {
  
 client.on("message", (message) => {
   if(message.content.startsWith(prefix) && !message.author.bot){
+    const args = message.content.slice(prefix.length).split(/ +/);
+    const command = args.shift().toLowerCase();
 
-    if (message.member.roles.cache.some(role => role.name === 'MO')){
+    switch(command){
+      case 'all':
+        client.commands.get('all').execute(message, args);
+        break;
 
-      const args = message.content.slice(prefix.length).split(/ +/);
-      const command = args.shift().toLowerCase();
+      case 'team':
+        client.commands.get('team').execute(client, message, args);
+        break;
 
-      switch(command){
-        case 'all':
-          client.commands.get('all').execute(message, args);
-          break;
+      case 'teams':
+        client.commands.get('teams').execute(client, message, args);
+        break;
 
-        case 'team':
-          client.commands.get('team').execute(client, message, args);
-          break;
+      case 'list':
+        client.commands.get('list').execute(message);
+        break;
 
-        case 'teams':
-          client.commands.get('teams').execute(client, message, args);
-          break;
+      case 'members':
+        client.commands.get('members').execute(message);
+        break;
 
-        case 'list':
-          client.commands.get('list').execute(message);
-          break;
+      case 'membersof':
+        client.commands.get('membersof').execute(message, args);
+        break;
+      
+      case 'plus':
+        client.commands.get('plus').execute(message, args);
+        break;
 
-        case 'members':
-          client.commands.get('members').execute(message);
-          break;
+      case 'minus':
+        client.commands.get('minus').execute(message, args);
+        break;
 
-        case 'membersof':
-          client.commands.get('membersof').execute(message, args);
-          break;
-        
-        case 'plus':
-          client.commands.get('plus').execute(message, args);
-          break;
-
-        case 'minus':
-          client.commands.get('minus').execute(message, args);
-          break;
-
-        case 'help':
-          client.commands.get('help').execute(message);
-          break;
-      }
-      message.delete({ timeout: 5000 });
+      case 'help':
+        client.commands.get('help').execute(message);
+        break;
     }
-    else {
-      message.channel.send(`You don't have permission`);
-    }
+    //message.delete({ timeout: 5000 });
   }
 });
 
