@@ -89,3 +89,7 @@ typings/
 
 # Config files
 config.json
+
+# Gitkraken rsa
+gitkraken_rsa
+gitkraken_rsa.pub
