@@ -1,5 +1,5 @@
-const maxStars = 7;
-const emoji = '🍬';
+const maxStars = 5;
+const emoji = '★';
 module.exports = {
     getRole: function (message, argument) {
         role = undefined

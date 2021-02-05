@@ -1,8 +1,8 @@
 const RoleManager = require('./role.js');
-const maxStars = 7;
-const emoji = '🍬';
-const item = 'candy'
-const items = 'candies'
+const maxStars = 5;
+const emoji = '★';
+const item = 'point'
+const items = 'points'
 module.exports = {
     name: 'plus',
     description: 'Add star to a team',
@@ -20,7 +20,7 @@ module.exports = {
             return message.channel.send(`'${argument}' role doesn't exist`);
         
         else{
-            var numStars = (role.name.match(/🍬/g)||[]).length
+            var numStars = (role.name.match(/★/g)||[]).length
             //Check if role has any star
             if (numStars == maxStars){
                 return message.channel.send(`${argument} can't have more ${items}`);

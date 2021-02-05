@@ -1,7 +1,7 @@
 const { Emoji } = require('discord.js');
 const RoleManager = require('./role.js');
-const emoji = '🍬';
-const item = 'candy'
+const emoji = '★';
+const item = 'point'
 module.exports = {
     name: 'minus',
     description: 'Remove item from a team',
@@ -19,7 +19,7 @@ module.exports = {
             return message.channel.send(`'${argument}' role doesn't exist`);
 
         else {
-            var numStars = (role.name.match(/🍬/g)||[]).length
+            var numStars = (role.name.match(/★/g)||[]).length
 
             //Check if role has any star     
             if (numStars == 0){
@@ -27,9 +27,7 @@ module.exports = {
             }
             else{
                 var roleName = role.name;
-                while(roleName.charAt(0) == "\ud83c"){
-                    roleName = roleName.substring(1);
-                }
+                roleName = roleName.substring(1);
                 role.edit({ name: `${roleName}`})
                 return message.channel.send(`${argument} lose a ${item}!`);
             }

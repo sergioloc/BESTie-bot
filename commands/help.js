@@ -6,16 +6,16 @@ module.exports = {
     execute(message){
         const embed = new Discord.MessageEmbed()
         .setTitle('BESTie help')
-        .setDescription('Move members at the same time!\n\u200b')
+        .setDescription('Move members & teams at the same time!\n\u200bA team is a role that have a voice channel with the same name.\n\u200b')
         .setColor(0x0070b8)
 
         .addField('__MOVE COMMANDS__', '\u200b')
         .addField('!all [Channel]', '_Move everyone to [Channel]_')
-        .addField('!team [Team]', '_Move [Team] members to their voice channel_')
+        .addField('!team [Team]', '_Move [Role] members to their voice channel_')
         .addField('!teams', '_Move all teams to their voice channel_\n\u200b')
 
         .addField('__PUNCTUATION COMMANDS__', '\u200b')
-        .addField('!plus [Team]', '_Add a point to [Team]_')
+        .addField('!plus [Team]', '_Add a point to [Team]_ (max. 5)')
         .addField('!minus [Team]', '_Remove a point from [Team]_\n\u200b')
 
         .addField('__INFO COMMANDS__', '\u200b')
