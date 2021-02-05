@@ -11,7 +11,9 @@ module.exports = {
                 }
             }); 
         });
-   
-        message.channel.send(`List of teams: ${teams.join(', ')}.`);
+        if(teams.length == 0)
+            message.channel.send(`There are no teams.`);
+        else
+            message.channel.send(`List of teams: ${teams.join(', ')}.`);
     }
 }
