@@ -22,7 +22,7 @@ function presence(){
 }
 
 client.on("ready", () => {
-    console.log("Estoy listo!");
+    console.log("Ad fundum semper");
     presence();
  });
  
