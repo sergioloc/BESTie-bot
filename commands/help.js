@@ -15,8 +15,8 @@ module.exports = {
         .addField('!teams', '_Move all teams to their voice channel_\n\u200b')
 
         .addField('__PUNCTUATION COMMANDS__', '\u200b')
-        .addField('!plus [Team]', '_Add candy to [Team]_')
-        .addField('!minus [Team]', '_Remove candy from [Team]_\n\u200b')
+        .addField('!plus [Team]', '_Add a point to [Team]_')
+        .addField('!minus [Team]', '_Remove a point from [Team]_\n\u200b')
 
         .addField('__INFO COMMANDS__', '\u200b')
         .addField('!list', '_List team names_')
